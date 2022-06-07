@@ -71,7 +71,17 @@ FPGA Architecture
 ## 1.b Vivado counter
 ![1a](https://user-images.githubusercontent.com/100422485/172453044-6809714e-2cde-42f6-90be-d86bcb5f04e1.png)
 ![1 b](https://user-images.githubusercontent.com/100422485/172453029-da8e72ec-ce76-4f6b-a509-44e13e13d0c1.png)
+![1c](https://user-images.githubusercontent.com/100422485/172457122-01b4ce52-e91a-4909-b5e9-9fea60670619.png)
 ![1 d](https://user-images.githubusercontent.com/100422485/172453038-c0a9a5d6-5a6f-4bc0-af25-d67828fea530.png)
+![1e](https://user-images.githubusercontent.com/100422485/172460091-0e6459af-71b9-4b7f-b252-c8ffea3eb2e1.png)
+![1f](https://user-images.githubusercontent.com/100422485/172460099-bb729340-b03f-49e0-92c3-4b982bf280fd.png)
+![1g](https://user-images.githubusercontent.com/100422485/172460103-65fbd06a-c31b-45cb-9653-dcf66ed8386f.png)
+![1i](https://user-images.githubusercontent.com/100422485/172460106-07ce65e1-ded5-41f1-973c-3855515427c7.png)
+![1j](https://user-images.githubusercontent.com/100422485/172460109-44a560d7-57ff-486a-9e17-3ff5017dfeb2.png)
+![1k](https://user-images.githubusercontent.com/100422485/172460113-214e4456-e54a-4a34-92a9-8226ea50126b.png)
+![1l](https://user-images.githubusercontent.com/100422485/172460115-2498256f-96f8-4bec-b619-2b72029c9fe6.png)
+![1m](https://user-images.githubusercontent.com/100422485/172460119-5d805966-a321-43b0-9324-70a2698fabf2.png)
+
 
 
 
@@ -344,9 +354,6 @@ Also add the .sdc file in generate_testbench.openfpga
 vpr ${VPR_ARCH_FILE} ${VPR_TESTBENCH_BLIF} --clock_modeling ideal --device ${OPENFPGA_VPR_DEVICE_LAYOUT} --absorb_buffer_luts off --sdc_file /home/vamsy.dasari126/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/BENCHMARK/rvmyth/mythcore.sdc
 ```
 
-![1 b](https://user-images.githubusercontent.com/100422485/172453029-da8e72ec-ce76-4f6b-a509-44e13e13d0c1.png)
-![1 d](https://user-images.githubusercontent.com/100422485/172453038-c0a9a5d6-5a6f-4bc0-af25-d67828fea530.png)
-![1a](https://user-images.githubusercontent.com/100422485/172453044-6809714e-2cde-42f6-90be-d86bcb5f04e1.png)
 
 ![setup timing report](https://user-images.githubusercontent.com/100422485/172448786-682c1c6e-90e4-4475-a4f8-71ae451fa17c.png)
 
