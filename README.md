@@ -1,3 +1,4 @@
+
 # FPGA-Workshop
 ![IMG_20220607_220427](https://user-images.githubusercontent.com/100422485/172435548-f047f8fb-e999-4ee6-9dd3-11b73c0ae9c4.jpg)
 
@@ -68,6 +69,11 @@ FPGA Architecture
 - Programmable interconnect- Wires to connect inputs, CLBs
 
 ## 1.b Vivado counter
+![1a](https://user-images.githubusercontent.com/100422485/172453044-6809714e-2cde-42f6-90be-d86bcb5f04e1.png)
+![1 b](https://user-images.githubusercontent.com/100422485/172453029-da8e72ec-ce76-4f6b-a509-44e13e13d0c1.png)
+![1 d](https://user-images.githubusercontent.com/100422485/172453038-c0a9a5d6-5a6f-4bc0-af25-d67828fea530.png)
+
+
 
 ## 1.c VIO Counter
 
@@ -232,10 +238,10 @@ Below is the code inside vpr_archi.xml
 
 Here I am navigating the file hirarchy and run OpenFPGA. A task execution completed is shown.
 
-I then open the log files which can be found in this directory /home/gfreyolamit/day4/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/latest/vpr_arch/up_counter/MIN_ROUTE_CHAN_WIDTH
+I then open the log files which can be found in this directory /home/anandita.pg21.ec/day4/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/latest/vpr_arch/up_counter/MIN_ROUTE_CHAN_WIDTH
 
 This is the information inside openshellfpga.log. It also log the errors. In this case we dont have any.
-![](fpgaday4/fpgaday4vlogopenshellfpga.png)
+
 Another log file that is very important in debugging is the vprstd.log file. Below is the portion of the log that it has.
 
 ## 4.2 SOFA counter timing
@@ -249,7 +255,7 @@ I then open generatetestbench.openfpga.
 
 Then input the following commands 
 ```
-vpr ${VPR_ARCH_FILE} ${VPR_TESTBENCH_BLIF} --clock_modeling ideal --device ${OPENFPGA_VPR_DEVICE_LAYOUT} --route_chan_width ${OPENFPGA_VPR_ROUTE_CHAN_WIDTH} --absorb_buffer_luts off --sdc_file /home/gfreyolamit/day4/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/BENCHMARK/counter.sdc
+vpr ${VPR_ARCH_FILE} ${VPR_TESTBENCH_BLIF} --clock_modeling ideal --device ${OPENFPGA_VPR_DEVICE_LAYOUT} --route_chan_width ${OPENFPGA_VPR_ROUTE_CHAN_WIDTH} --absorb_buffer_luts off --sdc_file /home/anandita.pg21.ec/day4/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/BENCHMARK/counter.sdc
 ```
 
 After running the openFPGA again. A log and report files has been generated. 
@@ -267,7 +273,7 @@ I also did not get a violation for hold report.
 ## 4.3: SOFA counter post impl
 For the counter post implementation. I edit the generate_testbench.openfpga with this command.
 ```
-vpr ${VPR_ARCH_FILE} ${VPR_TESTBENCH_BLIF} --clock_modeling ideal --device ${OPENFPGA_VPR_DEVICE_LAYOUT} --route_chan_width ${OPENFPGA_VPR_ROUTE_CHAN_WIDTH} --absorb_buffer_luts off --sdc_file /home/gfreyolamit/day4/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/BENCHMARK/counter.sdc --gen_post_synthesis_netlist on
+vpr ${VPR_ARCH_FILE} ${VPR_TESTBENCH_BLIF} --clock_modeling ideal --device ${OPENFPGA_VPR_DEVICE_LAYOUT} --route_chan_width ${OPENFPGA_VPR_ROUTE_CHAN_WIDTH} --absorb_buffer_luts off --sdc_file /home/anandita.pg21.ec/day4/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/BENCHMARK/counter.sdc --gen_post_synthesis_netlist on
 ```
 
 After execution of runOpenFPGA an up_counter_post_synthesis.v is generated as shown.
@@ -288,7 +294,7 @@ Here I open the upcounter.act that is generated in the post implementation stage
 
 I then edit the generate_testbench.openfpga file with the following command.
 ```
-vpr ${VPR_ARCH_FILE} ${VPR_TESTBENCH_BLIF} --clock_modeling ideal --device ${OPENFPGA_VPR_DEVICE_LAYOUT} --route_chan_width ${OPENFPGA_VPR_ROUTE_CHAN_WIDTH} --absorb_buffer_luts off   --power --activity_file /home/gfreyolamit/day4/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/latest/vpr_arch/up_counter/MIN_ROUTE_CHAN_WIDTH/up_counter_ace_out.act   --tech_properties /home/gfreyolamit/vtr-verilog-to-routing/vtr_flow/tech/PTM_45nm/45nm.xml
+vpr ${VPR_ARCH_FILE} ${VPR_TESTBENCH_BLIF} --clock_modeling ideal --device ${OPENFPGA_VPR_DEVICE_LAYOUT} --route_chan_width ${OPENFPGA_VPR_ROUTE_CHAN_WIDTH} --absorb_buffer_luts off   --power --activity_file /home/anandita.pg21.ec/day4/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/latest/vpr_arch/up_counter/MIN_ROUTE_CHAN_WIDTH/up_counter_ace_out.act   --tech_properties /home/anandita.pg21.ec/vtr-verilog-to-routing/vtr_flow/tech/PTM_45nm/45nm.xml
 ```
 
 I also edit the file vpr_arch.xml file and add the following command just below the complexblocklist code.
@@ -308,7 +314,7 @@ I also edit the file vpr_arch.xml file and add the following command just below 
 
 I edit the layout size to auto and the channel width to 150 in the task_simulaiton.conf as shown.
 
-After the execution of runOpenFPGA a up_counter.power files has been generated in the /home/gfreyolamit/day4/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/latest/vpr_arch/up_counter/MIN_ROUTE_CHAN_WIDTH/ directory.
+After the execution of runOpenFPGA a up_counter.power files has been generated in the /home/anandita.pg21.ec/day4/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/latest/vpr_arch/up_counter/MIN_ROUTE_CHAN_WIDTH/ directory.
 
 Inside it is the total and breakdown of power consumption of each blocks as highlighted.
 
@@ -318,10 +324,9 @@ Inside it is the total and breakdown of power consumption of each blocks as high
 Implementing Riscv core on SOFA and analayzing area, timing. and also done the post implementation netlist on vivado.
 
 #### Area analysis
+![area Analysis](https://user-images.githubusercontent.com/100422485/172448753-cf33efe1-82ef-46c8-9591-fbfaeacfcc23.png)
 
-Logic Elements
 
-Circuit Statstics
 
 #### Timing Summary
 
@@ -339,13 +344,16 @@ Also add the .sdc file in generate_testbench.openfpga
 vpr ${VPR_ARCH_FILE} ${VPR_TESTBENCH_BLIF} --clock_modeling ideal --device ${OPENFPGA_VPR_DEVICE_LAYOUT} --absorb_buffer_luts off --sdc_file /home/vamsy.dasari126/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/BENCHMARK/rvmyth/mythcore.sdc
 ```
 
-Setup Timing Report
+![1 b](https://user-images.githubusercontent.com/100422485/172453029-da8e72ec-ce76-4f6b-a509-44e13e13d0c1.png)
+![1 d](https://user-images.githubusercontent.com/100422485/172453038-c0a9a5d6-5a6f-4bc0-af25-d67828fea530.png)
+![1a](https://user-images.githubusercontent.com/100422485/172453044-6809714e-2cde-42f6-90be-d86bcb5f04e1.png)
 
-
-Hold Timing Report
+![setup timing report](https://user-images.githubusercontent.com/100422485/172448786-682c1c6e-90e4-4475-a4f8-71ae451fa17c.png)
 
 
 Implementation on Vivado
+
+![implementation on vivado](https://user-images.githubusercontent.com/100422485/172448777-f3566eca-7682-4f74-9738-f4612fc547f0.png)
 
 
 
