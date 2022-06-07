@@ -5,7 +5,7 @@
 
 # [FPGA - Fabric, Design and Architecture]
 ### ABOUT THE WORKSHOP
-ThIis report summarises about the 5 Days cloud based Workshop stating from FPGA introduction to its design fabrication.
+This report summarises about the 5 Days cloud based Workshop stating from FPGA introduction to its design fabrication.
 ### TABLE OF CONTENT
  [Day - 1 Introduction](#Day1-Intro)
   * [1.a : FPGA introduction](#[1.a-FPGA-introduction)
